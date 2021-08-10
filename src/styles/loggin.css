@@ -1,0 +1,24 @@
+.box-loggin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+form{
+    width: 80%;
+}
+.error{
+    height: 5px;
+    
+    margin-bottom: 18px;
+    color: red;
+}
+small{
+    font-size: 13px;  
+}
+.titulo{
+    background-color: black;
+    color: whitesmoke;
+    height: 60px;
+}
+
