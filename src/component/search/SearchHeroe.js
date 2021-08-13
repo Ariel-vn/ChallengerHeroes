@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import { peticionAxiosGet } from '../../helpers/peticionAxiosGet';
 import { Resultados } from './Resultados';
 
 export const SearchHeroe = () => {
@@ -14,7 +13,7 @@ export const SearchHeroe = () => {
         }
         return errors;
     };
-    const [resultSearch, setResultSearch] = useState([]);
+    const [resultSearch, setResultSearch] = useState("");
     
     const formik = useFormik({
         initialValues: {
@@ -23,11 +22,7 @@ export const SearchHeroe = () => {
         },
         validate,
         onSubmit: (values) => {
-            peticionAxiosGet(values.heroeToSearch)
-            .then(results=>{
-                setResultSearch(results); 
-            });
-            
+            setResultSearch(values.heroeToSearch); 
         },
     });
     return (
@@ -60,7 +55,7 @@ export const SearchHeroe = () => {
                 </form>
             </div>
             <div className="row">
-                <Resultados results={resultSearch}/>
+                <Resultados resultSearch={resultSearch}/>
             </div>
         </>
         

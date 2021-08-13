@@ -44,6 +44,7 @@ export const LoginScreen = () => {
                 try {
                     //petición API para login
                     await peticionAxiospost(values);
+                    //si la petición es exitosa disparo la acción para cambiar logged a true
                     dispatch({
                         type: types.login,
                     });

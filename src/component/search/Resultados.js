@@ -1,22 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { peticionAxiosGet } from '../../helpers/peticionAxiosGet';
 import { HeroList } from './HeroList'
 
-export const Resultados = ({results}) => {
-    // useEffect(() => {
-    //      if (results!==undefined) {
-    //         console.log(results)
-         
+export const Resultados = ({ resultSearch}) => {
+    const [heroe, setHeroe] = useState([]);
+    useEffect(() => {
+        if (resultSearch!==undefined) {
+            peticionAxiosGet(resultSearch)
+            .then(results => {
+                setHeroe(results);
+            });
+              console.log("hola")
+          }
+    }, [resultSearch]);
     
-    //      }
-    //  }, [results])
-    console.log(results)
         
     return (
-        <div className="row">
+        <div className="row ">
             
                 {
-                    (results!==undefined)
-                        ? <HeroList results={results}/>
+                    (heroe!==undefined)
+                        ? <HeroList results={heroe}/>
                         :("resultado")
                 }
             
