@@ -3,22 +3,31 @@ import { Context } from '../../reducers/Context'
 import { types } from '../../types/types'
 
 export const HeroCards = ({heroe}) => {
-    const {dispatchHero} = useContext(Context)
+    const {hero,dispatchHero} = useContext(Context)
     const handleSelectHero=()=>{
-    //Utilizo dispatch para agregar los heroes al state "hero", son los miembros del equipo
+        const heroesId=hero.map(heroid=>heroid.id);
+        if (!heroesId.includes(heroe.id)) {
+            //Utilizo dispatch para agregar los heroes al state "hero", son los miembros del equipo.
+            dispatchHero({
+                type: types.addtHero,
+                payload: {
+                    id: heroe.id,
+                    name: heroe.name,
+                    image: heroe.image,
+                    powerstats: heroe.powerstats
+                }
+            })
+        }else{
+            console.log("El heroe ya está en el equipo");
+        }
 
-        dispatchHero({
-            type:types.addtHero,
-            payload:{
-                name:heroe.name,
-                image:heroe.image.url,
-                powerstats: heroe.powerstats
-            }
-        })
+    
+
+        
     }
 
     return (
-        <div className="col-md-auto " style={{ maxWidth: 300 }}>
+        <div className="col " style={{ maxWidth: 180 }}>
             <div className="card text-center mb-3 animate__animated animate__fadeInLeft">
                 <img src={heroe.image.url} className="card-img-top" alt="..."/>
                     <div className="card-body">

@@ -1,6 +1,6 @@
 import React from 'react'
 import { SearchHeroe } from '../search/SearchHeroe'
-import { Team } from '../team/Team'
+import { TeamScreen } from '../team/TeamScreen'
 
 export const HomeScreen = () => {
 
@@ -13,12 +13,12 @@ export const HomeScreen = () => {
                     <h1>Challenger Heroes</h1>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-sm-12 col-lg-4">
+            <div className="row justify-content-center">
+                <div className="col-sm-12 col-lg-3">
                     <SearchHeroe /> 
                 </div>
-                <div className="col-sm-12 col-lg-8">
-                    <Team />
+                <div className="col-sm-12 col-lg-9">
+                    <TeamScreen />
                 </div>
             </div>
         </div>

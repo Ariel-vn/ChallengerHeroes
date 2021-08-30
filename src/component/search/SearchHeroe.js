@@ -27,7 +27,7 @@ export const SearchHeroe = () => {
     });
     return (
         <>
-            <div className="row">
+            <div className="row justify-content-center">
                 <form onSubmit={formik.handleSubmit}>
                     <div className="input-group mt-2">
                         <input 
@@ -54,8 +54,11 @@ export const SearchHeroe = () => {
                     }
                 </form>
             </div>
-            <div className="row">
+            <div className="row justify-content-center">
+                <div className="resultado">
+
                 <Resultados resultSearch={resultSearch}/>
+                </div>
             </div>
         </>
         
